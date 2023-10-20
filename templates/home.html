@@ -4,36 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5; /* Light background color */
+            color: #333; /* Text color */
+        }
+        .container {
+            margin: 2rem auto;
+            max-width: 500px;
+            background: #fff; /* White background */
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+    <title>House Price Prediction</title>
 </head>
 <body>
-   
-    <div class="login">
+    <div class="container">
         <h1>House Price Prediction</h1>
-
         <form action="{{url_for('predict')}}" method="post">
-            <input type="text" name="CRIM" placeholder="CRIM" required="required"><br>
-            <input type="text" name="ZN" placeholder="ZN" required="required"><br>
-            <input type="text" name="INDUS" placeholder="INDUS" required="required"><br>
-            <input type="text" name="CHAS" placeholder="CHAS" required="required"><br>
-            <input type="text" name="NOX" placeholder="NOX" required="required"><br>
-            <input type="text" name="RM" placeholder="RM" required="required"><br>
-            <input type="text" name="Age" placeholder="Age" required="required"><br>
-            <input type="text" name="DIS" placeholder="DIS" required="required"><br>
-            <input type="text" name="RAD" placeholder="RAD" required="required"><br>
-            <input type="text" name="TAX" placeholder="TAX" required="required"><br>
-            <input type="text" name="PTRATIO" placeholder="PTRATIO" required="required"><br>
-            <input type="text" name="B" placeholder="B" required="required"><br>
-            <input type="text" name="LSTAT" placeholder="LSTAT" required="required"><br>
-    
-            <button type="submit" class="btn-primay btn-block btn-large">Predict </button>
+            <div class="form-group">
+                <label for="CRIM">Crime Rate (CRIM):</label>
+                <input type="text" name="CRIM" id="CRIM" placeholder="Enter Crime Rate" required="required">
+            </div>
+
+            <div class="form-group">
+                <label for="ZN">Residential Land Proportion (ZN):</label>
+                <input type="text" name="ZN" id="ZN" placeholder="Enter Residential Land Proportion" required="required">
+            </div>
+
+            <div class="form-group">
+                <label for="INDUS">Non-Retail Business Proportion (INDUS):</label>
+                <input type="text" name="INDUS" id="INDUS" placeholder="Enter Non-Retail Business Proportion" required="required">
+            </div>
+
+            <div class="form-group">
+                <label for="CHAS">Proximity to Charles River (CHAS):</label>
+                <input type="text" name="CHAS" id="CHAS" placeholder="Enter Proximity to Charles River" required="required">
+            </div>
+
+            <div class="form-group">
+                <label for="NOX">Nitric Oxides Concentration (NOX):</label>
+                <input type="text" name="NOX" id="NOX" placeholder="Enter Nitric Oxides Concentration" required="required">
+            </div>
+
+            <div class="form-group">
+                <label for="RM">Average Number of Rooms (RM):</label>
+                <input type="text" name="RM" id="RM" placeholder="Enter Average Number of Rooms" required="required">
+            </div>
+
+            <div class="form-group">
+                <label for="AGE">Proportion of Units Built Before 1940 (AGE):</label>
+                <input type="text" name="AGE" id="AGE" placeholder="Enter Proportion of Units Built Before 1940" required="required">
+            </div>
+
+            <div class="form-group">
+                <label for="DIS">Distance to Employment Centers (DIS):</label>
+                <input type="text" name="DIS" id="DIS" placeholder="Enter Distance to Employment Centers" required="required">
+            </div>
+
+            <div class="form-group">
+                <label for="RAD">Accessibility to Radial Highways (RAD):</label>
+                <input type="text" name="RAD" id="RAD" placeholder="Enter Accessibility to Radial Highways" required="required">
+            </div>
+
+            <div class="form-group">
+                <label for="TAX">Property Tax Rate (TAX):</label>
+                <input type="text" name="TAX" id="TAX" placeholder="Enter Property Tax Rate" required="required">
+            </div>
+
+            <div class="form-group">
+                <label for="PTRATIO">Pupil-Teacher Ratio (PTRATIO):</label>
+                <input type="text" name="PTRATIO" id="PTRATIO" placeholder="Enter Pupil-Teacher Ratio" required="required">
+            </div>
+
+            <div class="form-group">
+                <label for="B">Proportion of Blacks (B):</label>
+                <input type="text" name="B" id="B" placeholder="Enter Proportion of Blacks" required="required">
+            </div>
+
+            <div class="form-group">
+                <label for="LSTAT">Percentage Lower Status (LSTAT):</label>
+                <input type="text" name="LSTAT" id="LSTAT" placeholder="Enter Percentage Lower Status" required="required">
+            </div>
+
+            <button type="submit" class="btn-primary">Predict</button>
         </form>
-    
-        <br>
-        <br>
+        <div class="result">
+            {{prediction_text}}
+        </div>
     </div>
-
-    {{prediction_text}}
-
 </body>
 </html>
