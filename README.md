@@ -1,6 +1,9 @@
 ### housePrice
-Live--->>> https://housepricing-5j6c.onrender.com/predict
 
+Live---Website Hosted>>>
+```
+https://housepricing-5j6c.onrender.com/predict
+```
 ### Software and tools Requirements
 
 1. [Git Hub](https://github.com/)
@@ -10,5 +13,18 @@ Live--->>> https://housepricing-5j6c.onrender.com/predict
 
 Create a Virtual Environment
 
+```
 virtualenv venv
+```
+
+Clone into the Repository
+```
+git clone https://github.com/Yousuf200/housePrice.git
+```
+
+Install the requirements
+
+```
+pip install -r requirements.txt
+```
 
